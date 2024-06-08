@@ -1,0 +1,168 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto; /* Reduced margin for better mobile view */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+    margin-top: 10px; /* Add some margin on top for spacing */
+}
+
+.logo-container {
+    text-align: center; /* Center the logo */
+    margin-bottom: 10px; /* Add some space below the logo */
+}
+
+.logo {
+    width: 32px; /* 50% of the original size (64px) */
+    height: 32px;
+}
+
+.centered-text {
+    text-align: center; /* Center the text in the <p> element */
+}
+
+.success-message {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.note {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logout-container {
+    text-align: center; /* Center align the logout button */
+    margin-top: 20px; /* Add spacing at the bottom */
+}
+
+.logout-button {
+    background-color: #ff0000; /* Red color */
+    color: white;
+    padding: 5px 10px; /* Reduced padding to make the button smaller */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Prevent mobile browsers from zooming in */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="text"],
+input[type="password"] {
+    font-size: 16px; /* Prevent mobile browsers from zooming in */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Ensure the button takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.message-container {
+    max-height: 400px; /* Adjust height as needed to fit about 8 messages */
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.message {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Ensure long messages break to the next line */
+}
+
+.message strong {
+    color: #007bff;
+}
+
+.timestamp {
+    font-size: 75%;
+    color: black;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.refresh-container {
+    text-align: center;
+    font-size: 75%;
+    color: black;
+    margin-top: 10px; /* Ensure same spacing as between the send button and textarea */
+}
+
+.logout {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+
