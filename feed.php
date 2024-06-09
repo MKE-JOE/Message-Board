@@ -16,7 +16,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<item>';
     echo '<title>' . htmlspecialchars($row['username']) . '</title>';
     echo '<description>' . htmlspecialchars($row['message']) . '</description>';
-    echo '<link>https://your-chat-app-server.com/message/' . $row['id'] . '</link>';
+    echo '<link>https://eagle-sd-message-board-2eab903cc1ec.herokuapp.com/message.php' . $row['id'] . '</link>';
     echo '<pubDate>' . date(DATE_RSS, strtotime($row['created_at'])) . '</pubDate>';
     echo '</item>';
 }
