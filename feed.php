@@ -8,7 +8,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 echo '<rss version="2.0">';
 echo '<channel>';
 echo '<title>RSS FEED</title>';
-echo '<link>http://eagle-sundance.mywebcommunity.org</link>';
+echo '<link>https://eagle-sd-message-board-2eab903cc1ec.herokuapp.com/message.php</link>';
 echo '<description>Latest messages from Eagle Sundance</description>';
 
 $result = $conn->query("SELECT * FROM messages ORDER BY id DESC");
