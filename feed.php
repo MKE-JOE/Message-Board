@@ -25,4 +25,3 @@ echo '</channel>';
 echo '</rss>';
 
 $conn->close();
-?>
