@@ -30,8 +30,18 @@ if (isset($response['error'])) {
     exit;
 }
 
+$data = $response['data'];
+
+// Check if the response is valid XML
+if (strpos($data, '<?xml') === false) {
+    // Handle the case where the response is not valid XML
+    error_log("The response is not valid XML: " . substr($data, 0, 200)); // Log the first 200 characters of the response
+    echo json_encode(['error' => 'The response is not valid XML']);
+    exit;
+}
+
 // Load the RSS feed data
-$rss_feed = simplexml_load_string($response['data']);
+$rss_feed = simplexml_load_string($data);
 if ($rss_feed === false) {
     // Handle XML parsing errors
     error_log("Failed to parse RSS feed");
