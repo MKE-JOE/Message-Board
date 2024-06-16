@@ -21,3 +21,5 @@ header('Content-Type: application/json');
 echo json_encode($items);
 
 // Optionally, store in a database or a file for later use
+file_put_contents('rss_data.json', json_encode($items));
+?>
