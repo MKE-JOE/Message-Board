@@ -22,4 +22,3 @@ echo json_encode($items);
 
 // Save the parsed data to a JSON file
 file_put_contents('rss_data.json', json_encode($items));
-?>
