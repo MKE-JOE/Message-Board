@@ -19,7 +19,3 @@ foreach ($rss_feed->channel->item as $item) {
 // Convert to JSON and print (for debugging)
 header('Content-Type: application/json');
 echo json_encode($items);
-
-// Optionally, store in a database or a file for later use
-file_put_contents('rss_data.json', json_encode($items));
-?>
