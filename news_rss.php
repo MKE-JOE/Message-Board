@@ -10,6 +10,7 @@ curl_setopt($ch, CURLOPT_URL, $rss_url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Skip SSL certificate verification (optional)
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
 
 // Execute the cURL request
 $rss_content = curl_exec($ch);
@@ -37,3 +38,4 @@ $output_file = 'rss_feed.xml';
 file_put_contents($output_file, $rss_content);
 
 echo "RSS feed fetched and saved to $output_file";
+?>
