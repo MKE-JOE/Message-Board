@@ -1,28 +1,34 @@
-
 <?php
-include 'db.php';
+// URL of the RSS feed
+$rss_feed_url = "https://news.google.com/rss/search?q=%22native+american%22+food+sovereignty&hl=en-US&gl=US&ceid=US%3Aen";
 
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/rss+xml; charset=UTF-8");
-
-echo '<?xml version="1.0" encoding="UTF-8" ?>';
-echo '<rss version="2.0">';
-echo '<channel>';
-echo '<title>RSS FEED</title>';
-echo '<link>https://news.google.com/rss/search?q=%22native+american%22+food+sovereignty&hl=en-US&gl=US&ceid=US%3Aen</link>';
-echo '<description>Latest messages from Eagle Sundance</description>';
-
-$result = $conn->query("SELECT * FROM messages ORDER BY id DESC");
-while ($row = $result->fetch_assoc()) {
-    echo '<item>';
-    echo '<title>' . htmlspecialchars($row['username']) . '</title>';
-    echo '<description>' . htmlspecialchars($row['message']) . '</description>';
-    echo '<link>https://news.google.com/rss/search?q=%22native+american%22+food+sovereignty&hl=en-US&gl=US&ceid=US%3Aen' . $row['id'] . '</link>';
-    echo '<pubDate>' . date(DATE_RSS, strtotime($row['created_at'])) . '</pubDate>';
-    echo '</item>';
+// Function to fetch the RSS feed and return it as a SimpleXMLElement object
+function fetch_rss_feed($url) {
+    $rss_content = file_get_contents($url);
+    if ($rss_content === false) {
+        return null;
+    }
+    return simplexml_load_string($rss_content);
 }
 
-echo '</channel>';
-echo '</rss>';
+// Fetch the RSS feed
+$rss_feed = fetch_rss_feed($rss_feed_url);
 
-$conn->close();
+if ($rss_feed === null) {
+    echo "Error fetching the RSS feed.";
+} else {
+    // Display the RSS feed items
+    echo "<h1>{$rss_feed->channel->title}</h1>";
+    echo "<ul>";
+
+    foreach ($rss_feed->channel->item as $item) {
+        echo "<li>";
+        echo "<a href='{$item->link}' target='_blank'>{$item->title}</a>";
+        echo "<p>{$item->description}</p>";
+        echo "<small>Published on: {$item->pubDate}</small>";
+        echo "</li>";
+    }
+
+    echo "</ul>";
+}
+?>
